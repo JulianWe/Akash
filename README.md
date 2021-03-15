@@ -1,9 +1,10 @@
 # Akash deployment Tutorial :rabbit2:
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
-
+## About
 | Key | Value |
 | --- | --- |
+| `Source: ` | `[Documentation](https://docs.akash.network/guides/deploy)` |
 | `Tutorial Author: ` | `Julian Wendland` |
 | `$AKT Address:` | ` akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
 
