@@ -39,21 +39,29 @@ akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 **How to recover keys**
+```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
+```
 
 **How to export keys**
+```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
+```
 
 **How to retrieve wallet address**
+```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
+```
 
 **How to check if there is enought $AKT to send transactions**
+```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
-
-Note:
+```
+**Note:** You can buy $AKT on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP
 
 
 ## Setup required Variables
+```bash
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 
@@ -63,10 +71,12 @@ curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
 
 AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
 AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
+```
 
 **Check AKASH_NODE & AKASH_CHAIN_ID variable**
+```bash
 echo $AKASH_NODE AKASH_CHAIN_ID
-
+```
 
 **How to retrieve and export ACCOUNT_ADDRESS as variable**
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
