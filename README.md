@@ -101,7 +101,7 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 ```
 
-# How to deploy _requires $AKT fees_
+**How to deploy** _requires $AKT fees_
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
