@@ -3,7 +3,7 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 
 ```sh
 Tutorial Author: Julian Wendland
-Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
+$AKT Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 ```
 
 ## Variables
@@ -20,14 +20,12 @@ Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 **Note:** you can always check if all the required variables are set using "echo " before your command.
 
 
-
 ## Installation
 
 ```sh
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 ```
-
 
 
 ## Wallet Setup
