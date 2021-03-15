@@ -77,6 +77,7 @@ akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
 :mailbox_with_mail: **How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
 export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY_NAME -a)
+echo $ACCOUNT_ADDRESS
 ```
 
 
@@ -84,7 +85,6 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY
 The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 ```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
-echo $ACCOUNT_ADDRESS
 ```
 
 :information_source: **Note:** You can buy `$AKT` on [BitMax](https://bitmax.io/register?inviteCode=LQDS1MMP)  using this link and withdraw them to your deployment `ACCOUNT_ADDRESS`
