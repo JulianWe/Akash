@@ -7,8 +7,7 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 | `Source: ` | [Documentation](https://docs.akash.network/guides/deploy) |
 | `Tutorial Author: ` | `Julian Wendland` |
 | `$AKT Address:` | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
-| `$ETH Address:` | `julianwendland.eth` |
-| `$BTC Address:` | `0x0f0d2BF29AAe4E6D8d646F967Df8c49B28Df05E5` |
+
 
 ## Variables
 |Name|Description|Example values |
@@ -29,6 +28,7 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 ```sh
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
+export akash=$PATH:/bin/akash
 ```
  
 
