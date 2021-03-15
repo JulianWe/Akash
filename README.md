@@ -93,11 +93,12 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 
 
 **How to generate certificate**
+
 ****requires fees**** 
-:warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
+:warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
 **How to download example deployment file**
@@ -107,6 +108,7 @@ curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deplo
 
 
 **How to deploy**
+
 ****requires fees****
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
@@ -190,7 +192,7 @@ leases:
 ```   
 
 
-and extract the following variables. These values are diffrent depending on your deployment.
+and export the following variables from **your** deployment.
 
 ```sh
 export PROVIDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
@@ -213,6 +215,7 @@ akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service 
 
 
 **How to Update Deployment**
+
 ****requires fees****
 ```sh
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
