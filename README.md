@@ -94,7 +94,7 @@ akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 :information_source: **Note:** You can buy `$AKT` on [BitMax](https://bitmax.io/register?inviteCode=LQDS1MMP)  using this link and withdraw them to your deployment `ACCOUNT_ADDRESS`
 
 
-#:scroll: Prepare for deployment
+## :scroll: Prepare for deployment
 
 Create a deployment configuration file: `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
 
