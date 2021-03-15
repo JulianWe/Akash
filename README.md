@@ -22,10 +22,12 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 |`KEY_NAME` | The name of the key you will be deploying from. | `julian` | 
 
 
-## Prepare `akash` :cloud:
+## Prepare `akash` environment :cloud:
 
 **Setup required variables for Installation & later use. `AKASH_NET`,`AKASH_VERSION`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 ```sh
+export AKASH_HOME=/home/jw/.akash
+
 export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 export AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
@@ -38,7 +40,6 @@ curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
 
 # Check variables
 echo AKASH_NET: $AKASH_NET, AKASH_VERSION: $AKASH_VERSION, AKASH_NODE: $AKASH_NODE, AKASH_CHAIN_ID: $AKASH_CHAIN_ID
-
 ```
 
 ## :white_medium_square: Start Installation
@@ -251,16 +252,13 @@ echo $PROVIDER $DSEQ $GSEQ $OSEQ
 
 **How to view logs**
 ```sh
-export AKASH_HOME=/home/jw/.akash
-
-
 akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
 ```
 
 
 **How to Update Deployment** `requires $AKT fees`
 ```sh
-echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
+echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --keyring-backend $KEYYRING_BACKEND --dseq $DSEQ 
 ``` 
 
 
