@@ -76,7 +76,7 @@ akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 
 
 
-## Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID` and prepare for deployment
+**Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID` and prepare for deployment**
 ```sh
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
