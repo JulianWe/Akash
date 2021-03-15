@@ -56,11 +56,6 @@ akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
 ```
 
-**How to retrieve wallet address**
-```sh
-akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
-```
-
 **How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
@@ -71,12 +66,12 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 ```
 
-**Note:** You can buy `$AKT` on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP
-**Note:** The balance indicated is is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
+**Note:** You can buy `$AKT` on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP and withdraw them to your `ACCOUNT_ADDRESS`
+**Note:** The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 
 
-
-**Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID` and prepare for deployment**
+## Prepare for deployment
+**Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 ```sh
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -94,7 +89,7 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 
 
 
-## Create the deployment configuration file 
+**Create the deployment configuration file**
 
 Create a deployment configuration `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
 
@@ -150,7 +145,8 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 ```
 
 
-**How to deploy `requires $AKT fees`**
+## How to deploy 
+`requires $AKT fees`
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
