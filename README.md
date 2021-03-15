@@ -82,7 +82,7 @@ echo $ACCOUNT_ADDRESS
 
 
 **How to check if there is enought `$AKT` to send transactions**
-The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
+:information_source: **Note:** The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 ```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 ```
