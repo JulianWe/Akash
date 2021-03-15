@@ -36,19 +36,21 @@ export KEYRING_BACKEND=os
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
-**Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
+:warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
-**Recover Keys**
+**How to recover keys**
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
 
-**How to recover Keys**
+**How to export keys**
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
 
-**How to retrieve Wallet Address**
+**How to retrieve wallet address**
 akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
 
 **How to check if there is enought $AKT to send transactions**
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
+
+Note:
 
 
 ## Setup required Variables
@@ -71,7 +73,7 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 
 
 **How to generate certificate**
-****requires fees**** :warning: certificate needs to be created only once per account and can be used across all deployments. 
+****requires fees**** :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 
@@ -86,14 +88,16 @@ curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deplo
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 
 
-**How to retrive market lease for DSEQ and PROVIDER Variable: EXAMPLE Values: 27977, akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+**How to retrive market lease for DSEQ and PROVIDER Variable**
+Example values: DSEQ=27977, akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 
 export DSEQ=83876
-export PRIVDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+export PROVIDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
 
 
-### How to view logs
+**How to view logs**
 export AKASH_HOME=/home/jw/.akash
 export SERVICE_NAME=web 
 export GSEQ=1
@@ -102,13 +106,13 @@ export OSEQ=1
 akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
 
 
-### How to Update Deployment
+**How to Update Deployment**
 ****requires fees****
 
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
 
 
-### How to close deployment
+**How to close deployment**
 ****requires fees****
 
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
