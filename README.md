@@ -4,12 +4,13 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 ## About
 | Key | Value |
 | --- | --- |
-| `Source ` | [Documentation](https://docs.akash.network/guides/deploy) |
+| `Source ` |:hole: [Documentation](https://docs.akash.network/guides/deploy) |
 | `Tutorial Author ` | `Julian Wendland` |
 | `$AKT Address` | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
 
 
 ## Variables
+:information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command. 
 |Name|Description|Example values |
 |---|---|---|
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
@@ -19,9 +20,6 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 |`ACCOUNT_ADDRESS`| The address of your account. | akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad* |
 |`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | os |
 |`KEY_NAME` | The name of the key you will be deploying from. | julian* | 
- 
-
-:information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command. 
 
 
 ## Prepare `akash` :cloud:
