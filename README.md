@@ -91,6 +91,58 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 
 
 
+**Create example deployment file**
+
+## Create The Deployment Configuration 
+
+Create a deployment configuration `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
+
+```sh
+cat > deploy.yml <<EOF
+---
+version: "2.0"
+
+services:
+  web:
+    image: ovrclk/lunie-light
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    web:
+      resources:
+        cpu:
+          units: 0.1
+        memory:
+          size: 512Mi
+        storage:
+          size: 512Mi
+  placement:
+    westcoast:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        web: 
+          denom: uakt
+          amount: 1000
+
+deployment:
+  web:
+    westcoast:
+      profile: web
+      count: 1
+
+EOF
+```
+
+
 **How to generate certificate** `requires $AKT fees`
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
@@ -98,10 +150,6 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
-**How to download example deployment file**
-```sh
-curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
-```
 
 **How to deploy** `requires $AKT fees`
 ```sh
