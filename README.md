@@ -24,30 +24,31 @@ curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh 
 ```
 
 ## Wallet Setup:
-# Variables:
+# Variables
 ```bash
 export KEY_NAME=julian
 export KEYRING_BACKEND=os
 ```
-###
+
+**How to **
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 
 **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
-### Recover Keys:
+### Recover Keys
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
 
-### How to recover Keys:
+### How to recover Keys
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
 
-### How to retrieve Wallet Address:
+### How to retrieve Wallet Address
 akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
 
 ### How to check if there is enought $AKT to send transactions
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 
 
-### Setup required Variables:
+### Setup required Variables
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 
@@ -66,17 +67,17 @@ echo $AKASH_NODE AKASH_CHAIN_ID
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
 
 
-### How to generate certificate:
+### How to generate certificate
 ****requires fees****
 
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 
 
-### How to download example deployment file:
+### How to download example deployment file
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 
 
-### How to deploy:
+### How to deploy
 ****requires fees****
 
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
@@ -89,7 +90,7 @@ export DSEQ=83876
 export PRIVDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
 
 
-### How to view logs:
+### How to view logs
 export AKASH_HOME=/home/jw/.akash
 export SERVICE_NAME=web 
 export GSEQ=1
@@ -98,13 +99,13 @@ export OSEQ=1
 akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
 
 
-### How to Update Deployment:
+### How to Update Deployment
 ****requires fees****
 
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
 
 
-### How to close deployment:
+### How to close deployment
 ****requires fees****
 
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
