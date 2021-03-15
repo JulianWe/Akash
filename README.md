@@ -7,15 +7,15 @@ $AKT Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 ```
 
 ## Variables
-|Name|Description|Example|
+|Name|Description|Example values |
 |---|---|---|
-|`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657* |
-|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2* |
+|`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657 |
+|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2 |
 |`ACCOUNT_ADDRESS`| The address of your account. | akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad* |
 |`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | os |
-|`KEY_NAME` | The name of the key you will be deploying from. | julian* | 
+|`KEY_NAME` | The name of the key you will be deploying from. | julian | 
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
-|`AKASH_VERSION`| Akash Version. | 0.10.1* | 
+|`AKASH_VERSION`| Akash Version. | 0.10.1 | 
 
 **Note:** you can always check if all the required variables are set using "echo " before your command.
 
@@ -91,7 +91,7 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 
 
 
-**How to generate certificate** _requires `$AKT` fees_
+**How to generate certificate** `requires $AKT fees`
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
@@ -103,7 +103,7 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 ```
 
-**How to deploy** _requires `$AKT` fees_
+**How to deploy** `requires $AKT fees`
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
@@ -207,13 +207,13 @@ akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service 
 ```
 
 
-**How to Update Deployment** _requires `$AKT` fees_
+**How to Update Deployment** `requires $AKT fees`
 ```sh
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
 ``` 
 
 
-**How to close deployment** _requires `$AKT` fees_
+**How to close deployment** `requires $AKT fees`
 ```sh
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
