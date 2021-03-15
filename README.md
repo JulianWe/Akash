@@ -1,19 +1,21 @@
 # Akash deployment Tutorial :rabbit2:
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
-```sh
-Tutorial Author: Julian Wendland
-$AKT Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
-```
+
+| Key | Value |
+| --- | --- |
+| `Tutorial Author: ` | `Julian Wendland` |
+| `$AKT Address:` | ` akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
+
 
 ## Variables
 |Name|Description|Example values |
 |---|---|---|
-|`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657 |
-|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2 |
+|`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657* |
+|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2* |
 |`ACCOUNT_ADDRESS`| The address of your account. | akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad* |
 |`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | os |
-|`KEY_NAME` | The name of the key you will be deploying from. | julian | 
+|`KEY_NAME` | The name of the key you will be deploying from. | julian* | 
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
 |`AKASH_VERSION`| Akash Version. | 0.10.1 | 
 
@@ -264,4 +266,5 @@ echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE -
 ```sh
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
+
 
