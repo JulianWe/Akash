@@ -219,7 +219,9 @@ echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE -
 
 
 **How to close deployment**
+
 ****requires fees****
+
 ```sh
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
