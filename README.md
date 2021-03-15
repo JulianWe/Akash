@@ -25,8 +25,8 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 
 
 ## Prepare `akash` :cloud:
-**Setup required variables for later use. `AKASH_NET`,`AKASH_VERSION`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 
+**Setup required variables for Installation & later use. `AKASH_NET`,`AKASH_VERSION`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 ```sh
 export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -49,8 +49,8 @@ curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh 
 export akash=$PATH:/bin/akash
  ```
 
-## Wallet Setup
-**Define `KEY_NAME` and `KEYRING_BACKEND` variables for wallet creation**
+## Wallet Setup 
+**Setup required variables `KEY_NAME` and `KEYRING_BACKEND` for wallet creation**
 ```sh
 export KEY_NAME=julian
 export KEYRING_BACKEND=os
