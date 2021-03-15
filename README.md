@@ -47,20 +47,23 @@ akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 
-**How to recover keys**
-```sh
-akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
-```
-
 **How to export keys**
 ```sh
 akash --keyring-backend $KEYRING_BACKEND keys export $KEY_NAME
 ```
 
+
+**How to recover keys**
+```sh
+akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
+```
+
+
 **How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
 export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY_NAME -a)
 ```
+
 
 **How to check if there is enought `$AKT` to send transactions**
 The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
@@ -87,7 +90,6 @@ export AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
 # Check variables
 echo AKASH_NET: $AKASH_NET AKASH_VERSION: $AKASH_VERSION AKASH_CHAIN_ID: $AKASH_CHAIN_ID AKASH_NODE: $AKASH_NODE 
 ```
-
 
 
 **Create the deployment configuration file**
@@ -266,6 +268,6 @@ echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE -
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
 
-
+## End
 `$AKT` :rocket: :full_moon:
 
