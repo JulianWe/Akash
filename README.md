@@ -94,7 +94,7 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 
 **How to generate certificate**
 
-****requires fees**** 
+***requires fees***
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
@@ -149,10 +149,10 @@ I[2021-03-14|16:43:36.133] lease ready                                  leaseID=
  "available_replicas": 1
 }
 ```
-**Note:** The SERVICE_NAME is "web"
+**Note:** The `SERVICE_NAME` is "web"
 
 
-**How to retrive market lease for PROVIDER, DSEQ, GSEQ and OSEQ variables**
+**How to retrive market lease for `PROVIDER`, `DSEQ`, `GSEQ` and `OSEQ` variables**
 ```sh
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 ```
