@@ -21,16 +21,16 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
 |`AKASH_VERSION`| Akash Version. | 0.10.1 | 
 
-:information_source: **Note:** you can always check if all the required variables are set using "echo " before your command. 
+:information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command. 
 
 
-## Set variable `AKASH_VERSION` & Install `akash`
-
+## Install `akash` :cloud:
+:information_source: Set variable `AKASH_VERSION` for later use.
 ```sh
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 ```
-
+ 
 
 ## Wallet Setup
 **Define `KEY_NAME` and `KEYRING_BACKEND` variables for wallet creation**
@@ -42,24 +42,24 @@ export KEYRING_BACKEND=os
 
 **How to add key if you haven't yet setup a key**
 ```sh
-akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
+akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME
 ```
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 
 **How to recover keys**
 ```sh
-akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
+akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
 ```
 
 **How to export keys**
 ```sh
-akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
+akash --keyring-backend $KEYRING_BACKEND keys export $KEY_NAME
 ```
 
 **How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
-export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
+export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY_NAME -a)
 ```
 
 **How to check if there is enought `$AKT` to send transactions**
@@ -242,7 +242,7 @@ export DSEQ=83876
 export GSEQ=1
 export OSEQ=1
 
-echo $DSEQ $PROVIDER $GSEQ $OSEQ
+echo $PROVIDER $DSEQ $GSEQ $OSEQ
 ``` 
 
 
