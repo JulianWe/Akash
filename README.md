@@ -30,9 +30,10 @@ export KEY_NAME=julian
 export KEYRING_BACKEND=os
 ```
 
-**How to **
+**How to add key**
+```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
-
+```
 **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 ### Recover Keys
@@ -68,7 +69,7 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 
 
 ### How to generate certificate
-****requires fees****
+****requires fees**** :warning: **certificate needs to be created only once per account** and can be used across all deployments. 
 
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 
