@@ -64,19 +64,19 @@ akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 
-**How to export keys**
+:lock: **How to export keys**
 ```sh
 akash --keyring-backend $KEYRING_BACKEND keys export $KEY_NAME
 ```
 
 
-**How to recover keys**
+:key: **How to recover keys**
 ```sh
 akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
 ```
 
 
-**How to retrieve and export `ACCOUNT_ADDRESS` as variable**
+:mailbox_with_mail: **How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
 export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY_NAME -a)
 ```
@@ -271,5 +271,5 @@ echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --d
 ``` 
 
 ## :white_medium_square: End
-`$AKT` :rocket: :full_moon:
+:heavy_dollar_sign:`AKT` :rocket: :full_moon:
 
