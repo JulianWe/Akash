@@ -10,7 +10,7 @@ Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 |`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657* |
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2* |
 |`ACCOUNT_ADDRESS`| The address of your account. | akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad* |
-|`KEYRING_BACKEND`| Keyring backend to use for local keys.(os|file|test) | os |
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | os |
 |`KEY_NAME` | The name of the key you will be deploying from. | julian* | 
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
 |`AKASH_VERSION`| Akash Version. | 0.10.1* | 
