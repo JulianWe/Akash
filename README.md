@@ -5,13 +5,13 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 # Variables:
 |Name|Description|Example|Docs|
 |---|---|
-|`AKASH_NODE`| Akash network configuration base URL. |  | See [Documentation]().|
-|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. |  | See [Documentation](https://docs.akash.network/guides/version).|
-|`ACCOUNT_ADDRESS`| The address of your account. |  | See [Documentation](https://docs.akash.network/guides/wallet).|
-|`KEYRING_BACKEND`| Keyring backend to use for local keys. |  | See [Documentation](https://docs.akash.network/guides/wallet)|
-|`KEY_NAME` | The name of the key you will be deploying from. |  | See [Documentation](https://docs.akash.network/guides/wallet) if you haven't yet setup a key|
-|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet | See [Documentation]().|
-|`AKASH_VERSION`| Akash Version. |  | See [Documentation]()|
+|`AKASH_NODE`| Akash network configuration base URL. | X | See [Documentation]().|
+|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | X | See [Documentation](https://docs.akash.network/guides/version).|
+|`ACCOUNT_ADDRESS`| The address of your account. | X | See [Documentation](https://docs.akash.network/guides/wallet).|
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. | X | See [Documentation](https://docs.akash.network/guides/wallet)|
+|`KEY_NAME` | The name of the key you will be deploying from. | X | See [Documentation](https://docs.akash.network/guides/wallet) if you haven't yet setup a key|
+|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet | See [Documentation](https://docs.akash.network/guides/version#RPC-Node).|
+|`AKASH_VERSION`| Akash Version. | X | See [Documentation](https://docs.akash.network/guides/version)|
 
 Note: you can always check if all the required variables are set using "echo " before your command.
 
