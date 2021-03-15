@@ -1,6 +1,6 @@
 # :cloud: Akash deployment Tutorial :rabbit2:
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
-
+![Akash](app/images/Akash.jpg)
 ## About
 | Key | Value |
 | --- | --- |
