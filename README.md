@@ -5,13 +5,13 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 # Variables:
 |Name|Description|Example|Docs|
 |---|---|---|---|
-|`AKASH_NODE`| Akash network configuration base URL. | X | See [Documentation]().|
-|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | X | See [Documentation](https://docs.akash.network/guides/version).|
-|`ACCOUNT_ADDRESS`| The address of your account. | X | See [Documentation](https://docs.akash.network/guides/wallet).|
-|`KEYRING_BACKEND`| Keyring backend to use for local keys. | X | See [Documentation](https://docs.akash.network/guides/wallet)|
-|`KEY_NAME` | The name of the key you will be deploying from. | X | See [Documentation](https://docs.akash.network/guides/wallet) if you haven't yet setup a key|
-|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet | See [Documentation](https://docs.akash.network/guides/version#RPC-Node).|
-|`AKASH_VERSION`| Akash Version. | X | See [Documentation](https://docs.akash.network/guides/version)|
+|`AKASH_NODE`| Akash network configuration base URL. | X |
+|`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | X |
+|`ACCOUNT_ADDRESS`| The address of your account. | X |
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. | X |
+|`KEY_NAME` | The name of the key you will be deploying from. | X | 
+|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | X |
+|`AKASH_VERSION`| Akash Version. | X | 
 
 Note: you can always check if all the required variables are set using "echo " before your command.
 
@@ -30,7 +30,7 @@ export KEY_NAME=julian
 export KEYRING_BACKEND=os
 ```
 
-**How to add key**
+**How to add key if you haven't yet setup a key**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
