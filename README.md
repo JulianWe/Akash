@@ -64,8 +64,9 @@ akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
 ```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 ```
-**Note:** You can buy $AKT on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP
 
+**Note:** You can buy $AKT on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP
+**Note:** The balance indicated is is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 
 
 ## Setup required Variables
@@ -79,12 +80,9 @@ curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
 
 AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
 AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
-```
 
-
-**Check AKASH_NODE & AKASH_CHAIN_ID variable**
-```sh
-echo $AKASH_NODE AKASH_CHAIN_ID
+# Check variables
+echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE 
 ```
 
 
@@ -112,10 +110,46 @@ curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deplo
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
+You should see a response similar to:
+
+```json
+jw@ChainLink:~$ akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
+Enter keyring passphrase:
+I[2021-03-14|16:43:00.592] tx sent successfully                         hash=58F0A15FCCB40B79BB98031DC43FB99DB2DB0824D966EE45B94C977EB39703B8 code=0 codespace= action=create-deployment dseq=83887
+I[2021-03-14|16:43:03.834] deployment created                           addr=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket dseq=83887
+I[2021-03-14|16:43:03.834] order for deployment created                 addr=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket dseq=83887 oseq=1
+I[2021-03-14|16:43:09.767] bid for order created                        addr=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket dseq=83887 oseq=1 price=100uakt
+D[2021-03-14|16:43:09.767] Processing bid
+D[2021-03-14|16:43:09.767] All groups have at least one bid
+I[2021-03-14|16:43:24.767] Done waiting on bids                         qty=1
+I[2021-03-14|16:43:24.767] Winning bid                                  gseq=1 price=100uakt provider=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+I[2021-03-14|16:43:28.417] All expected leases created                  addr=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket dseq=83887
+I[2021-03-14|16:43:28.417] lease for order created                      addr=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket dseq=83887 oseq=1 price=100uakt
+I[2021-03-14|16:43:28.417] Waiting on leases to be ready                leaseQuantity=1
+D[2021-03-14|16:43:28.417] Checking status of lease                     lease=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket/83887/1/1/akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+D[2021-03-14|16:43:28.528] Could not get lease status                   lease=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket/83887/1/1/akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz err="remote server returned 404"
+I[2021-03-14|16:43:28.918] sending manifest to provider                 action=send-manifest provider=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz dseq=83887
+D[2021-03-14|16:43:29.055] Could not get lease status                   lease=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket/83887/1/1/akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz err="remote server returned 503"
+I[2021-03-14|16:43:36.133] service ready                                lease=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket/83887/1/1/akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz service=web
+I[2021-03-14|16:43:36.133] lease ready                                  leaseID=akash1ny2lt9mcfet63k8ur2ue9xqaunxe80we64hket/83887/1/1/akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+{
+ "name": "web",
+ "available": 1,
+ "total": 1,
+ "uris": [
+  "5pvofe14fp8uhcmi1lhij63g0s.ingress.ams1p0.mainnet.akashian.io"
+ ],
+ "observed_generation": 1,
+ "replicas": 1,
+ "updated_replicas": 1,
+ "ready_replicas": 1,
+ "available_replicas": 1
+}
+```
+**Note:** The SERVICE_NAME is "web"
 
 
 **How to retrive market lease for PROVIDER, DSEQ, GSEQ and OSEQ variables**
-Example values: DSEQ=27977, akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
 ```sh
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 ```
@@ -155,13 +189,15 @@ leases:
 ```   
 
 
-and extract the following variables:
+and extract the following variables. These values are diffrent depending on your deployment.
 
 ```sh
-export DSEQ=83876
 export PROVIDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+export DSEQ=83876
+export GSEQ=1
+export OSEQ=1
 
-echo $DSEQ $PROVIDER
+echo $DSEQ $PROVIDER $GSEQ $OSEQ
 ``` 
 
 
