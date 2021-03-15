@@ -20,13 +20,13 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
 |`AKASH_VERSION`| Akash Version. | 0.10.1 | 
 
-**Note:** you can always check if all the required variables are set using "echo " before your command.
+:information_source: **Note:** you can always check if all the required variables are set using "echo " before your command. 
 
 
-## Installation
+## Set variable `AKASH_VERSION` & Install `akash`
 
 ```sh
-AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
+export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 ```
 
@@ -62,29 +62,29 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 ```
 
 **How to check if there is enought `$AKT` to send transactions**
+The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 ```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 ```
 
-**Note:** You can buy `$AKT` on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP and withdraw them to your `ACCOUNT_ADDRESS`
-**Note:** The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
+:information_source: **Note:** You can buy `$AKT` on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP and withdraw them to your `ACCOUNT_ADDRESS`
 
 
 ## Prepare for deployment
 **Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 ```sh
-AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
-AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
+export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
+export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 
 curl -s "$AKASH_NET/genesis.json" > genesis.json 
 curl -s "$AKASH_NET/seed-nodes.txt" | paste -d, -s
 curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
 
-AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
-AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
+export AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
+export AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
 
 # Check variables
-echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE 
+echo AKASH_NET: $AKASH_NET AKASH_VERSION: $AKASH_VERSION AKASH_CHAIN_ID: $AKASH_CHAIN_ID AKASH_NODE: $AKASH_NODE 
 ```
 
 
@@ -139,10 +139,11 @@ EOF
 ```
 
 
-**How to generate certificate** `requires $AKT fees` :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
+**How to generate certificate** `requires $AKT fees` 
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
+:warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
 ## How to deploy 
@@ -153,7 +154,7 @@ echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID 
 
 You should see a response similar to:
 
-```json
+```text
 jw@ChainLink:~$ akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 Enter keyring passphrase:
 I[2021-03-14|16:43:00.592] tx sent successfully                         hash=58F0A15FCCB40B79BB98031DC43FB99DB2DB0824D966EE45B94C977EB39703B8 code=0 codespace= action=create-deployment dseq=83887
@@ -264,4 +265,6 @@ echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE -
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
 
+
+`$AKT` :rocket: :full_moon:
 
