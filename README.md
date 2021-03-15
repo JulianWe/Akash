@@ -1,6 +1,8 @@
-## Akash
+## Akash Deployment Tutorial
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
+Tutorial Author: Julian Wendland
+Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 
 # Variables:
 |Name|Description|Example|Docs|
@@ -13,7 +15,7 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | X |
 |`AKASH_VERSION`| Akash Version. | X | 
 
-Note: you can always check if all the required variables are set using "echo " before your command.
+**Note:** you can always check if all the required variables are set using "echo " before your command.
 
 
 ## Installation:
@@ -24,7 +26,7 @@ curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh 
 ```
 
 ## Wallet Setup:
-# Variables
+**Variables needed for wallet creation**
 ```bash
 export KEY_NAME=julian
 export KEYRING_BACKEND=os
@@ -36,20 +38,20 @@ akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
 **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
-### Recover Keys
+**Recover Keys**
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
 
-### How to recover Keys
+**How to recover Keys**
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
 
-### How to retrieve Wallet Address
+**How to retrieve Wallet Address**
 akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
 
-### How to check if there is enought $AKT to send transactions
+**How to check if there is enought $AKT to send transactions**
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 
 
-### Setup required Variables
+## Setup required Variables
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
 
@@ -60,31 +62,31 @@ curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
 AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
 AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
 
-### Check AKASH_NODE & AKASH_CHAIN_ID variable
+**Check AKASH_NODE & AKASH_CHAIN_ID variable**
 echo $AKASH_NODE AKASH_CHAIN_ID
 
 
-### How to retrieve and export ACCOUNT_ADDRESS as variable
+**How to retrieve and export ACCOUNT_ADDRESS as variable**
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
 
 
-### How to generate certificate
-****requires fees**** :warning: **certificate needs to be created only once per account** and can be used across all deployments. 
+**How to generate certificate**
+****requires fees**** :warning: certificate needs to be created only once per account and can be used across all deployments. 
 
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 
 
-### How to download example deployment file
+**How to download example deployment file**
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 
 
-### How to deploy
+**How to deploy**
 ****requires fees****
 
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 
 
-### How to retrive market lease for DSEQ and PROVIDER Variable: EXAMPLE Values: 27977, akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
+**How to retrive market lease for DSEQ and PROVIDER Variable: EXAMPLE Values: 27977, akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 
 export DSEQ=83876
