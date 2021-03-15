@@ -73,7 +73,7 @@ akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 
 
 
-## Setup required variables and prepare for deployment
+## Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID` and prepare for deployment
 ```sh
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -91,7 +91,7 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 
 
 
-## Create The Deployment Configuration 
+## Create the deployment configuration file 
 
 Create a deployment configuration `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
 
@@ -233,7 +233,7 @@ leases:
     state: active
 ```   
 
-and export the following variables from **your** deployment.
+and export the following variables `PROVIDER`, `DSEQ`, `GSEQ`, `OSEQ` from **your** deployment.
 
 ```sh
 export PROVIDER=akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz
