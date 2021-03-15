@@ -93,7 +93,8 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 
 
 **How to generate certificate**
-****requires fees**** :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
+****requires fees**** 
+:warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
