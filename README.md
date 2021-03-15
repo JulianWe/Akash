@@ -43,7 +43,7 @@ echo AKASH_NET: $AKASH_NET, AKASH_VERSION: $AKASH_VERSION, AKASH_NODE: $AKASH_NO
 
 ```
 
-**Start Installation
+## Start Installation
 ```sh
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 export akash=$PATH:/bin/akash
