@@ -1,10 +1,10 @@
-## Akash Deployment Tutorial
+# Akash Deployment Tutorial
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
 Tutorial Author: Julian Wendland
 Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 
-# Variables:
+## Variables
 |Name|Description|Example|
 |---|---|---|
 |`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657* |
@@ -36,32 +36,26 @@ export KEYRING_BACKEND=os
 ```
 
 
-
 **How to add key if you haven't yet setup a key**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
-
-
 **How to recover keys**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
 ```
-
 
 **How to export keys**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys export "$KEY_NAME"
 ```
 
-
 **How to retrieve wallet address**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a
 ```
-
 
 **How to check if there is enought $AKT to send transactions**
 ```sh
@@ -88,12 +82,10 @@ AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
 echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE 
 ```
 
-
 **How to retrieve and export ACCOUNT_ADDRESS as variable**
 ```sh
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
 ```
-
 
 **How to generate certificate**
 
@@ -104,20 +96,16 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
-
-
 **How to download example deployment file**
 ```sh
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 ```
 
-
-**How to deploy**
-
-****requires fees****
+**How to deploy** _requires fees_
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
+
 You should see a response similar to:
 
 ```json
@@ -196,7 +184,6 @@ leases:
     state: active
 ```   
 
-
 and export the following variables from **your** deployment.
 
 ```sh
@@ -209,28 +196,22 @@ echo $DSEQ $PROVIDER $GSEQ $OSEQ
 ``` 
 
 
-
 **How to view logs**
 ```sh
 export AKASH_HOME=/home/jw/.akash
 export SERVICE_NAME=web 
 
 akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
-``` 
+```
 
 
-**How to Update Deployment**
-
-****requires fees****
+**How to Update Deployment** _requires fees_
 ```sh
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
 ``` 
 
 
-**How to close deployment**
-
-****requires fees****
-
+**How to close deployment** _requires fees_
 ```sh
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
