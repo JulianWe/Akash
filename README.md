@@ -141,15 +141,13 @@ EOF
 ```
 
 
-## How to generate certificate
+**How to generate certificate** `requires $AKT fees` :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
-`requires $AKT fees` :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
-
-## How to deploy `requires $AKT fees`
+**How to deploy `requires $AKT fees`**
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
@@ -191,13 +189,12 @@ I[2021-03-14|16:43:36.133] lease ready                                  leaseID=
 }
 ```
 
-**Note:** The `SERVICE_NAME` is "web"
-
+**Note:** :tada: `SERVICE_NAME` is "web"
 ```sh
 export SERVICE_NAME=web 
 ```
 
-## How to retrive market lease for `PROVIDER`, `DSEQ`, `GSEQ` and `OSEQ` information
+**How to retrive market lease for `PROVIDER`, `DSEQ`, `GSEQ` and `OSEQ` information**
 ```sh
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 ```
