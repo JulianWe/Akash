@@ -43,13 +43,13 @@ echo AKASH_NET: $AKASH_NET, AKASH_VERSION: $AKASH_VERSION, AKASH_NODE: $AKASH_NO
 
 ```
 
-## Start Installation
+## :white_medium_square: Start Installation
 ```sh
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 export akash=$PATH:/bin/akash
  ```
 
-## Wallet Setup 
+## :credit_card: Wallet Setup 
 **Setup required variables `KEY_NAME` and `KEYRING_BACKEND` for wallet creation**
 ```sh
 export KEY_NAME=julian
@@ -270,6 +270,6 @@ echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE -
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
 
-## End
+## :white_medium_square: End
 `$AKT` :rocket: :full_moon:
 
