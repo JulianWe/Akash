@@ -19,7 +19,7 @@ Address: akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad
 
 
 
-## Installation:
+## Installation
 
 ```sh
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -27,7 +27,8 @@ curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh 
 ```
 
 
-## Wallet Setup:
+
+## Wallet Setup
 **Variables needed for wallet creation**
 ```sh
 export KEY_NAME=julian
@@ -35,11 +36,13 @@ export KEYRING_BACKEND=os
 ```
 
 
+
 **How to add key if you haven't yet setup a key**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
+
 
 
 **How to recover keys**
@@ -99,6 +102,8 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
 :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
+
+
 
 
 **How to download example deployment file**
