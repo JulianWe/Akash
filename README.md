@@ -12,25 +12,42 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 ## Variables
 |Name|Description|Example values |
 |---|---|---|
-|`AKASH_NODE`| Akash network configuration base URL. | http://135.181.60.250:26657* |
+|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
+|`AKASH_VERSION`| Akash Version. | 0.10.1 |
+|`AKASH_NODE`| Akash network configuration base URL. | http://rpc.akash.forbole.com:80 |
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | akashnet-2* |
 |`ACCOUNT_ADDRESS`| The address of your account. | akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad* |
 |`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | os |
 |`KEY_NAME` | The name of the key you will be deploying from. | julian* | 
-|`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | https://raw.githubusercontent.com/ovrclk/net/master/mainnet |
-|`AKASH_VERSION`| Akash Version. | 0.10.1 | 
+ 
 
 :information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command. 
 
 
-## Install `akash` :cloud:
-:information_source: Set variable `AKASH_VERSION` for later use.
+## Prepare `akash` :cloud:
+**Setup required variables for later use. `AKASH_NET`,`AKASH_VERSION`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
+
 ```sh
+export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
+export AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
+export AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
+
+curl -s "$AKASH_NET/genesis.json" > genesis.json 
+curl -s "$AKASH_NET/seed-nodes.txt" | paste -d, -s
+curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
+
+
+# Check variables
+echo AKASH_NET: $AKASH_NET, AKASH_VERSION: $AKASH_VERSION, AKASH_NODE: $AKASH_NODE, AKASH_CHAIN_ID: $AKASH_CHAIN_ID
+
+```
+
+**Start Installation
+```sh
 curl https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh | sh -s -- "$AKASH_VERSION"
 export akash=$PATH:/bin/akash
-```
- 
+ ```
 
 ## Wallet Setup
 **Define `KEY_NAME` and `KEYRING_BACKEND` variables for wallet creation**
@@ -69,28 +86,13 @@ export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY
 The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 ```sh
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
+echo $ACCOUNT_ADDRESS
 ```
 
-:information_source: **Note:** You can buy `$AKT` on BitMax using this link: https://bitmax.io/register?inviteCode=LQDS1MMP and withdraw them to your `ACCOUNT_ADDRESS`
+:information_source: **Note:** You can buy `$AKT` on [BitMax](https://bitmax.io/register?inviteCode=LQDS1MMP)  using this link and withdraw them to your deployment `ACCOUNT_ADDRESS`
 
 
 ## Prepare for deployment
-**Setup required variables `AKASH_NET`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
-```sh
-export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
-export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
-
-curl -s "$AKASH_NET/genesis.json" > genesis.json 
-curl -s "$AKASH_NET/seed-nodes.txt" | paste -d, -s
-curl -s "$AKASH_NET/peer-nodes.txt" | paste -d, -s
-
-export AKASH_CHAIN_ID="$(curl -s "$AKASH_NET/chain-id.txt")"
-export AKASH_NODE="$(curl -s "$AKASH_NET/rpc-nodes.txt" | shuf -n 1)"
-
-# Check variables
-echo AKASH_NET: $AKASH_NET AKASH_VERSION: $AKASH_VERSION AKASH_CHAIN_ID: $AKASH_CHAIN_ID AKASH_NODE: $AKASH_NODE 
-```
-
 
 **Create the deployment configuration file**
 
