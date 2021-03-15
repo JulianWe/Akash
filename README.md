@@ -4,7 +4,7 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 
 # Variables:
 |Name|Description|Example|Docs|
-|---|---|
+|---|---|---|---|
 |`AKASH_NODE`| Akash network configuration base URL. | X | See [Documentation]().|
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | X | See [Documentation](https://docs.akash.network/guides/version).|
 |`ACCOUNT_ADDRESS`| The address of your account. | X | See [Documentation](https://docs.akash.network/guides/wallet).|
