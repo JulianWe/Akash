@@ -1,4 +1,4 @@
-# Akash deployment Tutorial :rabbit2:
+# :cloud: Akash deployment Tutorial :rabbit2:
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
 ## About
@@ -7,7 +7,8 @@ Censorship-resistant, permissionless, and self-sovereign, Akash Network is the w
 | `Source: ` | [Documentation](https://docs.akash.network/guides/deploy) |
 | `Tutorial Author: ` | `Julian Wendland` |
 | `$AKT Address:` | ` akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
-
+| `$ETH Address:` | ` julianwendland.eth` |
+| `$BTC Address:` | ` julianwendland.eth` |
 
 ## Variables
 |Name|Description|Example values |
