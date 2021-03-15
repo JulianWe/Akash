@@ -91,8 +91,6 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 
 
 
-**Create example deployment file**
-
 ## Create The Deployment Configuration 
 
 Create a deployment configuration `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
@@ -143,15 +141,15 @@ EOF
 ```
 
 
-**How to generate certificate** `requires $AKT fees`
+## How to generate certificate
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
-:warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
+`requires $AKT fees` :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
 
 
-**How to deploy** `requires $AKT fees`
+## How to deploy `requires $AKT fees`
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
@@ -192,10 +190,14 @@ I[2021-03-14|16:43:36.133] lease ready                                  leaseID=
  "available_replicas": 1
 }
 ```
+
 **Note:** The `SERVICE_NAME` is "web"
 
+```sh
+export SERVICE_NAME=web 
+```
 
-**How to retrive market lease for `PROVIDER`, `DSEQ`, `GSEQ` and `OSEQ` variables**
+## How to retrive market lease for `PROVIDER`, `DSEQ`, `GSEQ` and `OSEQ` information
 ```sh
 akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 ```
@@ -249,7 +251,7 @@ echo $DSEQ $PROVIDER $GSEQ $OSEQ
 **How to view logs**
 ```sh
 export AKASH_HOME=/home/jw/.akash
-export SERVICE_NAME=web 
+
 
 akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
 ```
