@@ -1,4 +1,4 @@
-# Akash Deployment Tutorial :rabbit2:
+# Akash deployment Tutorial :rabbit2:
 Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT
 
 ```sh
@@ -42,6 +42,7 @@ akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME
 ```
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
+
 **How to recover keys**
 ```sh
 akash --keyring-backend "$KEYRING_BACKEND" keys add "$KEY_NAME" --recover
@@ -66,7 +67,8 @@ akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 **Note:** The balance indicated is is denominated in uAKT (AKT x 10^-6) We're now setup to deploy.
 
 
-## Setup required Variables
+
+## Setup required variables and prepare for deployment
 ```sh
 AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -87,9 +89,7 @@ echo $AKASH_NET $AKASH_VERSION $AKASH_CHAIN_ID $AKASH_NODE
 export ACCOUNT_ADDRESS=$(akash --keyring-backend "$KEYRING_BACKEND" keys show "$KEY_NAME" -a)
 ```
 
-**How to generate certificate**
-
-***requires fees***
+**How to generate certificate** _requires $AKT fees_
 ```sh
 echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
@@ -101,7 +101,7 @@ echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $K
 curl -s https://raw.githubusercontent.com/ovrclk/docs/master/guides/deploy/deploy.yml > deploy.yml
 ```
 
-**How to deploy** _requires fees_
+# How to deploy _requires $AKT fees_
 ```sh
 echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
@@ -205,13 +205,13 @@ akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service 
 ```
 
 
-**How to Update Deployment** _requires fees_
+**How to Update Deployment** _requires $AKT fees_
 ```sh
 echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --dseq $DSEQ
 ``` 
 
 
-**How to close deployment** _requires fees_
+**How to close deployment** _requires $AKT fees_
 ```sh
 echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
