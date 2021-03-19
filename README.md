@@ -1,4 +1,4 @@
-# :cloud: [Akash](https://akash.network/) deployment Tutorial 🐇
+# ☁️ [Akash](https://akash.network/) deployment Tutorial 🐇
 
 
 ![Akash](app/images/Akash.jpg)
