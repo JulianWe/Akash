@@ -1,19 +1,18 @@
-# :cloud: [Akash](https://akash.network/) deployment Tutorial 🐇
-
+# :cloud: [Akash](https://akash.network/) deployment Tutorial :rabbit2:
+**Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. | $AKT**
 
 ![Akash](app/images/Akash.jpg)
 
 ## About
-**Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. $AKT**
 | Key | Value |
 | --- | --- |
-| `Sources ` |:hole: [Documentation](https://docs.akash.network/guides/deploy) [Blockexplorer](https://akash.aneka.io/) |
-| `Tutorial Author ` | :coffee: `Julian Wendland` |
+| `Source ` |:hole: [Documentation](https://docs.akash.network/guides/deploy) |
+| `Tutorial Author ` | `Julian Wendland` |
 | `$AKT Address` | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
 
 
 ## Variables
-:information_source: **Note:** you can always check if all the required variables are set using "echo " before your command. 
+:information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command. 
 |Name|Description|Example values |
 |---|---|---|
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | `https://raw.githubusercontent.com/ovrclk/net/master/mainnet` |
@@ -21,7 +20,7 @@
 |`AKASH_NODE`| Akash network configuration base URL. | `http://rpc.akash.forbole.com:80` |
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | `akashnet-2` |
 |`ACCOUNT_ADDRESS`| The address of your account. | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
-|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `file` |
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `os` |
 |`KEY_NAME` | The name of the key you will be deploying from. | `julian` | 
 
 
@@ -29,6 +28,7 @@
 
 **Setup required variables for Installation & later use. `AKASH_NET`,`AKASH_VERSION`, `AKASH_NODE` & `AKASH_CHAIN_ID`**
 ```sh
+export AKASH_HOME=/home/jw/.akash
 
 export AKASH_NET="https://raw.githubusercontent.com/ovrclk/net/master/mainnet"
 export AKASH_VERSION="$(curl -s "$AKASH_NET/version.txt")"
@@ -54,31 +54,32 @@ export akash=$PATH:/bin/akash
 **Setup required variables `KEY_NAME` and `KEYRING_BACKEND` for wallet creation**
 ```sh
 export KEY_NAME=julian
+export KEYRING_BACKEND=os
 ```
 
 
 **:key: How to add key if you haven't yet setup a key**
 ```sh
-akash keys add $KEY_NAME  --keyring-backend file
+akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME
 ```
 :warning: **Important** write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.
 
 
-**How to export keys** :lock:
+**:lock: How to export keys**
 ```sh
-akash keys export $KEY_NAME --keyring-backend file
+akash --keyring-backend $KEYRING_BACKEND keys export $KEY_NAME
 ```
 
 
-**How to recover keys** :unlock:
+**:unlock: How to recover keys**
 ```sh
-akash keys add $KEY_NAME --keyring-backend file --recover
+akash --keyring-backend $KEYRING_BACKEND keys add $KEY_NAME --recover
 ```
 
 
 **:mailbox_with_mail: How to retrieve and export `ACCOUNT_ADDRESS` as variable**
 ```sh
-export ACCOUNT_ADDRESS=$(akash --keyring-backend file keys show $KEY_NAME -a)
+export ACCOUNT_ADDRESS=$(akash --keyring-backend $KEYRING_BACKEND keys show $KEY_NAME -a)
 echo $ACCOUNT_ADDRESS
 ```
 
@@ -90,11 +91,11 @@ The balance indicated is denominated in uAKT (AKT x 10^-6) We're now setup to de
 akash query bank balances --node $AKASH_NODE $ACCOUNT_ADDRESS
 ```
 
-:information_source: **Note: You can buy `$AKT` on [BitMax](https://bitmax.io/register?inviteCode=LQDS1MMP) using this link** and withdraw them to your deployment `ACCOUNT_ADDRESS`
+:information_source: **Note:** You can buy `$AKT` on [BitMax](https://bitmax.io/register?inviteCode=LQDS1MMP)  using this link and withdraw them to your deployment `ACCOUNT_ADDRESS`
 
 
 ## :scroll: Prepare for deployment
-[Choose deployment image](https://github.com/ovrclk/awesome-akash)
+
 Create a deployment configuration file: `deploy.yml` to deploy the `ovrclk/lunie-light` for [Lunie Light](https://github.com/ovrclk/lunie-light) Node app container using [SDL](https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md):
 
 ```sh
@@ -145,19 +146,15 @@ EOF
 
 **How to generate certificate** `requires $AKT fees` 
 ```sh
-echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend file --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
+echo akash tx cert create client --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --from $KEY_NAME --node $AKASH_NODE --fees 5000uakt
 ```
 :warning:  **Important** certificate needs to be created only once per account and can be used across all deployments. 
 
-**How to revore certificate** `requires $AKT fees` 
-```sh
-echo akash tx cert revoke --chain-id=$AKASH_CHAIN_ID --from=$KEY_NAME --node=$AKASH_NODE --fees=5000uakt --keyring-backend file 
-```
 
 ## :bomb: How to deploy 
 `requires $AKT fees`
 ```sh
-echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend file --node $AKASH_NODE --fees 5000uakt
+echo akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 ```
 
 You should see a response similar to:
@@ -252,66 +249,25 @@ export OSEQ=1
 echo $PROVIDER $DSEQ $GSEQ $OSEQ
 ``` 
 
-**How to verify deployment creation**
-```sh
-# List all deloyments
-akash query deployment list --owner $ACCOUNT_ADDRESS --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE
-
-# List specific dployment
-akash query deployment get --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --dseq $DSEQ
-``` 
-
-**How to list market bid**
-```sh
-akash query market bid list --owner $ACCOUNT_ADDRESS --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE
-``` 
-
-**How to create market lease**
-```sh
-akash  tx market lease create --from $KEY_NAME --owner $ACCOUNT_ADDRESS --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE --dseq $DSEQ --oseq $OSEQ --gseq $GSEQ --provider $PROVIDER --fees=500uakt --keyring-backend file
-``` 
-
-
-**How to get market lease**
-```sh
-akash query market lease list --owner $ACCOUNT_ADDRESS --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE
-akash query market lease get --owner $ACCOUNT_ADDRESS --dseq $DSEQ --oseq $OSEQ --gseq $GSEQ --provider $PROVIDER --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE
-
-``` 
-
-**:mag: How to view deployment**
-```sh
-akash provider lease-status --log_level=info --dseq $DSEQ --from $KEY_NAME --home ~/.akash --provider $PROVIDER --keyring-backend file --node $AKASH_NODE
-```
 
 **:pencil: How to view logs**
 ```sh
-akash --node $AKASH_NODE provider service-logs --service $SERVICE_NAME --owner $ACCOUNT_ADDRESS --dseq $DSEQ --gseq $GSEQ --oseq $OSEQ --provider $PROVIDER
-akash --node $AKASH_NODE provider lease-logs --from $ACCOUNT_ADDRESS --provider $PROVIDER --dseq $DSEQ --keyring-backend file --service SERVICE_NAME --home ~/.akash 
+akash --home "$AKASH_HOME" --node "$AKASH_NODE" provider service-logs --service $SERVICE_NAME --owner "$ACCOUNT_ADDRESS" --dseq "$DSEQ" --gseq $GSEQ --oseq $OSEQ --provider "$PROVIDER"
 ```
 
 
 **:recycle: How to Update Deployment** `requires $AKT fees`
 ```sh
-echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --keyring-backend file --dseq $DSEQ 
+echo akash tx deployment update deploy.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 5000uakt --keyring-backend $KEYYRING_BACKEND --dseq $DSEQ 
 ``` 
 
 
 **:x: How to close deployment** `requires $AKT fees`
 ```sh
-echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend file -y --fees 5000uakt  --gas=auto
+echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --dseq $DSEQ  --owner $ACCOUNT_ADDRESS --from $KEY_NAME --keyring-backend $KEYRING_BACKEND -y --fees 5000uakt
 ``` 
 
 ### :bulb: End :heavy_dollar_sign:`AKT` :rocket: :full_moon:
 
-**How to build & run docker container**
-```sh
-docker build -t akash-webapp .
 
-docker run -d -p 8080:80 akash-webapp
-``` 
-**How to convert README.md file to HTML**
-```sh
-pandoc sample_readme.md -t html -o sample_readme.html
-``` 
 
