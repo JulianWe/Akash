@@ -57,7 +57,7 @@ export KEY_NAME=julian
 ```
 
 
-** 🔑 How to add key if you haven't yet setup a key**
+**🔑 How to add key if you haven't yet setup a key**
 ```sh
 akash keys add $KEY_NAME  --keyring-backend file
 ```
@@ -70,7 +70,7 @@ akash keys export $KEY_NAME --keyring-backend file
 ```
 
 
-**How to recover keys** 🔓c
+**How to recover keys** 🔓
 ```sh
 akash keys add $KEY_NAME --keyring-backend file --recover
 ```
