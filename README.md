@@ -313,8 +313,8 @@ docker build -t akash-webapp .
 docker run -d -p 8080:80 akash-webapp
 ``` 
 
-**How to convert README.md file to HTML**
+**How to convert README.md file to HTML with utf-8 encoding**
 ```sh
-pandoc sample_readme.md -t html -o sample_readme.html
+iconv -t utf-8 README.md | pandoc -t html -o README.html | iconv -f utf-8
 ``` 
 
