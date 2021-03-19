@@ -5,15 +5,16 @@
 
 ## About
 **Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. $AKT**
+## About
 | Key | Value |
 | --- | --- |
-| `Sources ` | 🕳️ [Documentation](https://docs.akash.network/guides/deploy) [Blockexplorer](https://akash.aneka.io/) |
+| `Source ` | 🕳️ [Documentation](https://docs.akash.network/guides/deploy) |
 | `Tutorial Author ` | ☕ `Julian Wendland` |
 | `$AKT Address` | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
 
 
 ## Variables
-ℹ️ **Note:** you can always check if all the required variables are set using "echo " before your command. 
+:information_source: **Note:** you can always check if all the required variables are set using "echo $variable" before your command.
 |Name|Description|Example values |
 |---|---|---|
 |`AKASH_NET`| The URL of Akash Network. In This Tutorial we are using Mainnet | `https://raw.githubusercontent.com/ovrclk/net/master/mainnet` |
@@ -21,8 +22,9 @@
 |`AKASH_NODE`| Akash network configuration base URL. | `http://rpc.akash.forbole.com:80` |
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | `akashnet-2` |
 |`ACCOUNT_ADDRESS`| The address of your account. | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
-|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `file` |
-|`KEY_NAME` | The name of the key you will be deploying from. | `julian` | 
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `os` |
+|`KEY_NAME` | The name of the key you will be deploying from. | `julian` |
+
 
 
 # Prepare `akash` environment ☁️
