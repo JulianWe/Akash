@@ -22,7 +22,7 @@
 |`AKASH_NODE`| Akash network configuration base URL. | `http://rpc.akash.forbole.com:80` |
 |`AKASH_CHAIN_ID`| Chain ID of the Akash network connecting to. | `akashnet-2` |
 |`ACCOUNT_ADDRESS`| The address of your account. | `akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad` |
-|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `os` |
+|`KEYRING_BACKEND`| Keyring backend to use for local keys. (os,file or test) | `file` |
 |`KEY_NAME` | The name of the key you will be deploying from. | `julian` |
 
 

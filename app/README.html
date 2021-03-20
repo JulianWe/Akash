@@ -1,87 +1,93 @@
 <h1 id="akash-deployment-tutorial">☁️ <a href="https://akash.network/">Akash</a> deployment Tutorial 🐇</h1>
 <figure>
-<img src="app/images/Akash.jpg" alt="" /><figcaption>Akash</figcaption>
+    <img src="app/images/Akash.jpg" alt="" />
+    <figcaption>Akash</figcaption>
 </figure>
 <h2 id="about">About</h2>
-<p><strong>Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source cloud. $AKT</strong></p>
+<p><strong>Censorship-resistant, permissionless, and self-sovereign, Akash Network is the world’s first open source
+        cloud. $AKT</strong></p>
 <table>
-<thead>
-<tr class="header">
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Source</code></td>
-<td>🕳️ <a href="https://docs.akash.network/guides/deploy">Documentation</a></td>
-</tr>
-<tr class="even">
-<td><code>Tutorial Author</code></td>
-<td>☕ <code>Julian Wendland</code></td>
-</tr>
-<tr class="odd">
-<td><code>$AKT Address</code></td>
-<td><code>akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad</code></td>
-</tr>
-</tbody>
+    <thead>
+        <tr class="header">
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>Source</code></td>
+            <td>🕳️ <a href="https://docs.akash.network/guides/deploy">Documentation</a></td>
+        </tr>
+        <tr class="even">
+            <td><code>Tutorial Author</code></td>
+            <td>☕ <code>Julian Wendland</code></td>
+        </tr>
+        <tr class="odd">
+            <td><code>$AKT Address</code></td>
+            <td><code>akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad</code></td>
+        </tr>
+    </tbody>
 </table>
 <h2 id="variables">Variables</h2>
-<p><strong>ℹ️ Note:</strong> you can always check if all the required variables are set using “echo” before your command.</p>
+<p><strong>ℹ️ Note:</strong> you can always check if all the required variables are set using “echo” before your
+    command.</p>
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Description</th>
-<th>Example values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>AKASH_NET</code></td>
-<td>The URL of Akash Network. In This Tutorial we are using Mainnet</td>
-<td><code>https://raw.githubusercontent.com/ovrclk/net/master/mainnet</code></td>
-</tr>
-<tr class="even">
-<td><code>AKASH_VERSION</code></td>
-<td>Akash Version.</td>
-<td><code>0.10.1</code></td>
-</tr>
-<tr class="odd">
-<td><code>AKASH_NODE</code></td>
-<td>Akash network configuration base URL.</td>
-<td><code>http://rpc.akash.forbole.com:80</code></td>
-</tr>
-<tr class="even">
-<td><code>AKASH_CHAIN_ID</code></td>
-<td>Chain ID of the Akash network connecting to.</td>
-<td><code>akashnet-2</code></td>
-</tr>
-<tr class="odd">
-<td><code>ACCOUNT_ADDRESS</code></td>
-<td>The address of your account.</td>
-<td><code>akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad</code></td>
-</tr>
-<tr class="even">
-<td><code>KEYRING_BACKEND</code></td>
-<td>Keyring backend to use for local keys. (os,file or test)</td>
-<td><code>file</code></td>
-</tr>
-<tr class="odd">
-<td><code>KEY_NAME</code></td>
-<td>The name of the key you will be deploying from.</td>
-<td><code>julian</code></td>
-</tr>
-</tbody>
+    <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+    </colgroup>
+    <thead>
+        <tr class="header">
+            <th>Name</th>
+            <th>Description</th>
+            <th>Example values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>AKASH_NET</code></td>
+            <td>The URL of Akash Network. In This Tutorial we are using Mainnet</td>
+            <td><code>https://raw.githubusercontent.com/ovrclk/net/master/mainnet</code></td>
+        </tr>
+        <tr class="even">
+            <td><code>AKASH_VERSION</code></td>
+            <td>Akash Version.</td>
+            <td><code>0.10.1</code></td>
+        </tr>
+        <tr class="odd">
+            <td><code>AKASH_NODE</code></td>
+            <td>Akash network configuration base URL.</td>
+            <td><code>http://rpc.akash.forbole.com:80</code></td>
+        </tr>
+        <tr class="even">
+            <td><code>AKASH_CHAIN_ID</code></td>
+            <td>Chain ID of the Akash network connecting to.</td>
+            <td><code>akashnet-2</code></td>
+        </tr>
+        <tr class="odd">
+            <td><code>ACCOUNT_ADDRESS</code></td>
+            <td>The address of your account.</td>
+            <td><code>akash1srujzhj2v9fkzhnn635udlczyhdpetuh34mhad</code></td>
+        </tr>
+        <tr class="even">
+            <td><code>KEYRING_BACKEND</code></td>
+            <td>Keyring backend to use for local keys. (os,file or test)</td>
+            <td><code>file</code></td>
+        </tr>
+        <tr class="odd">
+            <td><code>KEY_NAME</code></td>
+            <td>The name of the key you will be deploying from.</td>
+            <td><code>julian</code></td>
+        </tr>
+    </tbody>
 </table>
 <h1 id="prepare-akash-environment">Prepare <code>akash</code> environment ☁️</h1>
-<p><strong>Setup required variables for Installation &amp; later use. <code>AKASH_NET</code>,<code>AKASH_VERSION</code>, <code>AKASH_NODE</code> &amp; <code>AKASH_CHAIN_ID</code></strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a></span>
+<p><strong>Setup required variables for Installation &amp; later use. <code>AKASH_NET</code>,<code>AKASH_VERSION</code>,
+        <code>AKASH_NODE</code> &amp; <code>AKASH_CHAIN_ID</code></strong></p>
+<div class="sourceCode" id="cb1">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">AKASH_NET=</span><span class="st">&quot;https://raw.githubusercontent.com/ovrclk/net/master/mainnet&quot;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="bu">export</span> <span class="va">AKASH_VERSION=</span><span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> -s <span class="st">&quot;</span><span class="va">$AKASH_NET</span><span class="st">/version.txt&quot;</span><span class="va">)</span><span class="st">&quot;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="bu">export</span> <span class="va">AKASH_NODE=</span><span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> -s <span class="st">&quot;</span><span class="va">$AKASH_NET</span><span class="st">/rpc-nodes.txt&quot;</span> <span class="kw">|</span> <span class="ex">shuf</span> -n 1<span class="va">)</span><span class="st">&quot;</span></span>
@@ -93,30 +99,59 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="co"># Check variables</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="bu">echo</span> AKASH_NET: <span class="va">$AKASH_NET</span>, AKASH_VERSION: <span class="va">$AKASH_VERSION</span>, AKASH_NODE: <span class="va">$AKASH_NODE</span>, AKASH_CHAIN_ID: <span class="va">$AKASH_CHAIN_ID</span></span></code></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="bu">echo</span> AKASH_NET: <span class="va">$AKASH_NET</span>, AKASH_VERSION: <span class="va">$AKASH_VERSION</span>, AKASH_NODE: <span class="va">$AKASH_NODE</span>, AKASH_CHAIN_ID: <span class="va">$AKASH_CHAIN_ID</span></span></code></pre>
+</div>
 <h2 id="start-installation">🏳️ Start Installation</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">curl</span> https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh <span class="kw">|</span> <span class="fu">sh</span> -s -- <span class="st">&quot;</span><span class="va">$AKASH_VERSION</span><span class="st">&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">akash=$PATH</span>:/bin/akash</span></code></pre></div>
+<div class="sourceCode" id="cb2">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">curl</span> https://raw.githubusercontent.com/ovrclk/akash/master/godownloader.sh <span class="kw">|</span> <span class="fu">sh</span> -s -- <span class="st">&quot;</span><span class="va">$AKASH_VERSION</span><span class="st">&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">akash=$PATH</span>:/bin/akash</span></code></pre>
+</div>
 <h2 id="wallet-setup">💳 Wallet Setup</h2>
-<p><strong>Setup required variables <code>KEY_NAME</code> and <code>KEYRING_BACKEND</code> for wallet creation</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">KEY_NAME=</span>julian</span></code></pre></div>
+<p><strong>Setup required variables <code>KEY_NAME</code> and <code>KEYRING_BACKEND</code> for wallet creation</strong>
+</p>
+<div class="sourceCode" id="cb3">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">KEY_NAME=</span>julian</span></code></pre>
+</div>
 <p><strong>🔑 How to add key if you haven’t yet setup a key</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">akash</span> keys add <span class="va">$KEY_NAME</span>  --keyring-backend file</span></code></pre></div>
-<p>:warning: <strong>Important</strong> write this mnemonic phrase in a safe place. It is the only way to recover your account if you ever forget your password.</p>
+<div class="sourceCode" id="cb4">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">akash</span> keys add <span class="va">$KEY_NAME</span>  --keyring-backend file</span></code></pre>
+</div>
+<p>:warning: <strong>Important</strong> write this mnemonic phrase in a safe place. It is the only way to recover your
+    account if you ever forget your password.</p>
 <p><strong>How to export keys</strong> 🔒</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">akash</span> keys export <span class="va">$KEY_NAME</span> --keyring-backend file</span></code></pre></div>
+<div class="sourceCode" id="cb5">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">akash</span> keys export <span class="va">$KEY_NAME</span> --keyring-backend file</span></code></pre>
+</div>
 <p><strong>How to recover keys</strong> 🔓</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="ex">akash</span> keys add <span class="va">$KEY_NAME</span> --keyring-backend file --recover</span></code></pre></div>
+<div class="sourceCode" id="cb6">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="ex">akash</span> keys add <span class="va">$KEY_NAME</span> --keyring-backend file --recover</span></code></pre>
+</div>
 <p><strong>📬 How to retrieve and export <code>ACCOUNT_ADDRESS</code> as variable</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">ACCOUNT_ADDRESS=$(</span><span class="ex">akash</span> --keyring-backend file keys show <span class="va">$KEY_NAME</span> -a<span class="va">)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$ACCOUNT_ADDRESS</span></span></code></pre></div>
+<div class="sourceCode" id="cb7">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">ACCOUNT_ADDRESS=$(</span><span class="ex">akash</span> --keyring-backend file keys show <span class="va">$KEY_NAME</span> -a<span class="va">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$ACCOUNT_ADDRESS</span></span></code></pre>
+</div>
 <p><strong>💰 How to check if there is enought <code>$AKT</code> to send transactions</strong></p>
 <p>The balance indicated is denominated in uAKT (AKT x 10^-6) We’re now setup to deploy.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="ex">akash</span> query bank balances --node <span class="va">$AKASH_NODE</span> <span class="va">$ACCOUNT_ADDRESS</span></span></code></pre></div>
-<p>ℹ️ <strong>Note: You can buy <code>$AKT</code> on <a href="https://bitmax.io/register?inviteCode=LQDS1MMP">BitMax</a> using this link</strong> and withdraw them to your deployment <code>ACCOUNT_ADDRESS</code></p>
+<div class="sourceCode" id="cb8">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="ex">akash</span> query bank balances --node <span class="va">$AKASH_NODE</span> <span class="va">$ACCOUNT_ADDRESS</span></span></code></pre>
+</div>
+<p>ℹ️ <strong>Note: You can buy <code>$AKT</code> on <a href="https://bitmax.io/register?inviteCode=LQDS1MMP">BitMax</a>
+        using this link</strong> and withdraw them to your deployment <code>ACCOUNT_ADDRESS</code></p>
 <h2 id="prepare-for-deployment">📜 Prepare for deployment</h2>
-<p><a href="https://github.com/ovrclk/awesome-akash">Choose deployment image</a> Create a deployment configuration file: <code>deploy.yml</code> to deploy the <code>ovrclk/lunie-light</code> for <a href="https://github.com/ovrclk/lunie-light">Lunie Light</a> Node app container using <a href="https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md">SDL</a>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">cat</span> <span class="op">&gt;</span> deploy.yml <span class="op">&lt;&lt;EOF</span></span>
+<p><a href="https://github.com/ovrclk/awesome-akash">Choose deployment image</a> Create a deployment configuration file:
+    <code>deploy.yml</code> to deploy the <code>ovrclk/lunie-light</code> for <a
+        href="https://github.com/ovrclk/lunie-light">Lunie Light</a> Node app container using <a
+        href="https://github.com/ovrclk/docs/blob/5d695ab63f391ebf255d48859ed3f626040fbf47/sdl/README.md">SDL</a>:</p>
+<div class="sourceCode" id="cb9">
+    <pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">cat</span> <span class="op">&gt;</span> deploy.yml <span class="op">&lt;&lt;EOF</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>---</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>version: &quot;2.0&quot;</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
@@ -157,15 +192,26 @@
 <span id="cb9-39"><a href="#cb9-39" aria-hidden="true"></a>      profile: web</span>
 <span id="cb9-40"><a href="#cb9-40" aria-hidden="true"></a>      count: 1</span>
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true"></a></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a><span class="op">EOF</span></span></code></pre></div>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a><span class="op">EOF</span></span></code></pre>
+</div>
 <p><strong>How to generate certificate</strong> <code>requires $AKT fees</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx cert create client --chain-id <span class="va">$AKASH_CHAIN_ID</span> --keyring-backend file --from <span class="va">$KEY_NAME</span> --node <span class="va">$AKASH_NODE</span> --fees 5000uakt</span></code></pre></div>
-<p>⚠️ <strong>Important</strong> certificate needs to be created only once per account and can be used across all deployments.</p>
+<div class="sourceCode" id="cb10">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx cert create client --chain-id <span class="va">$AKASH_CHAIN_ID</span> --keyring-backend file --from <span class="va">$KEY_NAME</span> --node <span class="va">$AKASH_NODE</span> --fees 5000uakt</span></code></pre>
+</div>
+<p>⚠️ <strong>Important</strong> certificate needs to be created only once per account and can be used across all
+    deployments.</p>
 <p><strong>How to revore certificate</strong> <code>requires $AKT fees</code></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx cert revoke --chain-id=<span class="va">$AKASH_CHAIN_ID</span> --from=<span class="va">$KEY_NAME</span> --node=<span class="va">$AKASH_NODE</span> --fees=5000uakt --keyring-backend file </span></code></pre></div>
+<div class="sourceCode" id="cb11">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx cert revoke --chain-id=<span class="va">$AKASH_CHAIN_ID</span> --from=<span class="va">$KEY_NAME</span> --node=<span class="va">$AKASH_NODE</span> --fees=5000uakt --keyring-backend file </span></code></pre>
+</div>
 <h2 id="how-to-deploy">💣 How to deploy</h2>
 <p><code>requires $AKT fees</code></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="bu">echo</span> akash deploy create deploy.yml --from <span class="va">$KEY_NAME</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --keyring-backend file --node <span class="va">$AKASH_NODE</span> --fees 5000uakt</span></code></pre></div>
+<div class="sourceCode" id="cb12">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="bu">echo</span> akash deploy create deploy.yml --from <span class="va">$KEY_NAME</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --keyring-backend file --node <span class="va">$AKASH_NODE</span> --fees 5000uakt</span></code></pre>
+</div>
 <p>You should see a response similar to:</p>
 <pre class="text"><code>jw@ChainLink:~$ akash deploy create deploy.yml --from $KEY_NAME --chain-id $AKASH_CHAIN_ID --keyring-backend $KEYRING_BACKEND --node $AKASH_NODE --fees 5000uakt
 Enter keyring passphrase:
@@ -200,11 +246,20 @@ I[2021-03-14|16:43:36.133] lease ready                                  leaseID=
  &quot;available_replicas&quot;: 1
 }</code></pre>
 <p>ℹ️ <strong>Note:</strong> 🎉 <code>SERVICE_NAME</code> is “web”</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">SERVICE_NAME=</span>web </span></code></pre></div>
-<p><strong>How to retrive market lease for <code>PROVIDER</code>, <code>DSEQ</code>, <code>GSEQ</code> and <code>OSEQ</code> information</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="ex">akash</span> query market lease list --owner <span class="va">$ACCOUNT_ADDRESS</span> --node <span class="va">$AKASH_NODE</span> --state active</span></code></pre></div>
+<div class="sourceCode" id="cb14">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">SERVICE_NAME=</span>web </span></code></pre>
+</div>
+<p><strong>How to retrive market lease for <code>PROVIDER</code>, <code>DSEQ</code>, <code>GSEQ</code> and
+        <code>OSEQ</code> information</strong></p>
+<div class="sourceCode" id="cb15">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="ex">akash</span> query market lease list --owner <span class="va">$ACCOUNT_ADDRESS</span> --node <span class="va">$AKASH_NODE</span> --state active</span></code></pre>
+</div>
 <p>You should see a response similar to:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="fu">leases</span><span class="kw">:</span></span>
+<div class="sourceCode" id="cb16">
+    <pre
+        class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="fu">leases</span><span class="kw">:</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">-</span><span class="at"> </span><span class="fu">escrow_payment</span><span class="kw">:</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">account_id</span><span class="kw">:</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">scope</span><span class="kw">:</span><span class="at"> deployment</span></span>
@@ -232,40 +287,75 @@ I[2021-03-14|16:43:36.133] lease ready                                  leaseID=
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true"></a><span class="at">    </span><span class="fu">price</span><span class="kw">:</span></span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true"></a><span class="at">      </span><span class="fu">amount</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;100&quot;</span></span>
 <span id="cb16-28"><a href="#cb16-28" aria-hidden="true"></a><span class="at">      </span><span class="fu">denom</span><span class="kw">:</span><span class="at"> uakt</span></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> active</span></span></code></pre></div>
-<p>and export the following variables <code>PROVIDER</code>, <code>DSEQ</code>, <code>GSEQ</code>, <code>OSEQ</code> from <strong>your</strong> deployment.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">PROVIDER=</span>akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> active</span></span></code></pre>
+</div>
+<p>and export the following variables <code>PROVIDER</code>, <code>DSEQ</code>, <code>GSEQ</code>, <code>OSEQ</code>
+    from <strong>your</strong> deployment.</p>
+<div class="sourceCode" id="cb17">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">PROVIDER=</span>akash1ccktptfkvdc67msasmesuy5m7gpc76z75kukpz</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">DSEQ=</span>83876</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a><span class="bu">export</span> <span class="va">GSEQ=</span>1</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="bu">export</span> <span class="va">OSEQ=</span>1</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$PROVIDER</span> <span class="va">$DSEQ</span> <span class="va">$GSEQ</span> <span class="va">$OSEQ</span></span></code></pre></div>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$PROVIDER</span> <span class="va">$DSEQ</span> <span class="va">$GSEQ</span> <span class="va">$OSEQ</span></span></code></pre>
+</div>
 <p><strong>How to verify deployment creation</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="co"># List all deloyments</span></span>
+<div class="sourceCode" id="cb18">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="co"># List all deloyments</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="ex">akash</span> query deployment list --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="co"># List specific dployment</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="ex">akash</span> query deployment get --owner <span class="va">$ACCOUNT_ADDRESS</span> --node <span class="va">$AKASH_NODE</span> --dseq <span class="va">$DSEQ</span></span></code></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="ex">akash</span> query deployment get --owner <span class="va">$ACCOUNT_ADDRESS</span> --node <span class="va">$AKASH_NODE</span> --dseq <span class="va">$DSEQ</span></span></code></pre>
+</div>
 <p><strong>How to list market bid</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="ex">akash</span> query market bid list --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span></code></pre></div>
+<div class="sourceCode" id="cb19">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="ex">akash</span> query market bid list --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span></code></pre>
+</div>
 <p><strong>How to create market lease</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="ex">akash</span>  tx market lease create --from <span class="va">$KEY_NAME</span> --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span> --dseq <span class="va">$DSEQ</span> --oseq <span class="va">$OSEQ</span> --gseq <span class="va">$GSEQ</span> --provider <span class="va">$PROVIDER</span> --fees=500uakt --keyring-backend file</span></code></pre></div>
+<div class="sourceCode" id="cb20">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="ex">akash</span>  tx market lease create --from <span class="va">$KEY_NAME</span> --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span> --dseq <span class="va">$DSEQ</span> --oseq <span class="va">$OSEQ</span> --gseq <span class="va">$GSEQ</span> --provider <span class="va">$PROVIDER</span> --fees=500uakt --keyring-backend file</span></code></pre>
+</div>
 <p><strong>How to get market lease</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="ex">akash</span> query market lease list --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="ex">akash</span> query market lease get --owner <span class="va">$ACCOUNT_ADDRESS</span> --dseq <span class="va">$DSEQ</span> --oseq <span class="va">$OSEQ</span> --gseq <span class="va">$GSEQ</span> --provider <span class="va">$PROVIDER</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span></code></pre></div>
+<div class="sourceCode" id="cb21">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="ex">akash</span> query market lease list --owner <span class="va">$ACCOUNT_ADDRESS</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="ex">akash</span> query market lease get --owner <span class="va">$ACCOUNT_ADDRESS</span> --dseq <span class="va">$DSEQ</span> --oseq <span class="va">$OSEQ</span> --gseq <span class="va">$GSEQ</span> --provider <span class="va">$PROVIDER</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --node <span class="va">$AKASH_NODE</span></span></code></pre>
+</div>
 <p><strong>🔍 How to view deployment</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="ex">akash</span> provider lease-status --log_level=info --dseq <span class="va">$DSEQ</span> --from <span class="va">$KEY_NAME</span> --home ~/.akash --provider <span class="va">$PROVIDER</span> --keyring-backend file --node <span class="va">$AKASH_NODE</span></span></code></pre></div>
+<div class="sourceCode" id="cb22">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="ex">akash</span> provider lease-status --log_level=info --dseq <span class="va">$DSEQ</span> --from <span class="va">$KEY_NAME</span> --home ~/.akash --provider <span class="va">$PROVIDER</span> --keyring-backend file --node <span class="va">$AKASH_NODE</span></span></code></pre>
+</div>
 <p><strong>📝 How to view logs</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="ex">akash</span> --node <span class="va">$AKASH_NODE</span> provider service-logs --service <span class="va">$SERVICE_NAME</span> --owner <span class="va">$ACCOUNT_ADDRESS</span> --dseq <span class="va">$DSEQ</span> --gseq <span class="va">$GSEQ</span> --oseq <span class="va">$OSEQ</span> --provider <span class="va">$PROVIDER</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="ex">akash</span> --node <span class="va">$AKASH_NODE</span> provider lease-logs --from <span class="va">$ACCOUNT_ADDRESS</span> --provider <span class="va">$PROVIDER</span> --dseq <span class="va">$DSEQ</span> --keyring-backend file --service SERVICE_NAME --home ~/.akash </span></code></pre></div>
+<div class="sourceCode" id="cb23">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="ex">akash</span> --node <span class="va">$AKASH_NODE</span> provider service-logs --service <span class="va">$SERVICE_NAME</span> --owner <span class="va">$ACCOUNT_ADDRESS</span> --dseq <span class="va">$DSEQ</span> --gseq <span class="va">$GSEQ</span> --oseq <span class="va">$OSEQ</span> --provider <span class="va">$PROVIDER</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="ex">akash</span> --node <span class="va">$AKASH_NODE</span> provider lease-logs --from <span class="va">$ACCOUNT_ADDRESS</span> --provider <span class="va">$PROVIDER</span> --dseq <span class="va">$DSEQ</span> --keyring-backend file --service SERVICE_NAME --home ~/.akash </span></code></pre>
+</div>
 <p><strong>♻️ How to Update Deployment</strong> <code>requires $AKT fees</code></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx deployment update deploy.yml --from <span class="va">$KEY_NAME</span> --node <span class="va">$AKASH_NODE</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --fees 5000uakt --keyring-backend file --dseq <span class="va">$DSEQ</span> </span></code></pre></div>
+<div class="sourceCode" id="cb24">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx deployment update deploy.yml --from <span class="va">$KEY_NAME</span> --node <span class="va">$AKASH_NODE</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --fees 5000uakt --keyring-backend file --dseq <span class="va">$DSEQ</span> </span></code></pre>
+</div>
 <p><strong>❌ How to close deployment</strong> <code>requires $AKT fees</code></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx deployment close --node <span class="va">$AKASH_NODE</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --dseq <span class="va">$DSEQ</span>  --owner <span class="va">$ACCOUNT_ADDRESS</span> --from <span class="va">$KEY_NAME</span> --keyring-backend file -y --fees 5000uakt  --gas=auto</span></code></pre></div>
+<div class="sourceCode" id="cb25">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="bu">echo</span> akash tx deployment close --node <span class="va">$AKASH_NODE</span> --chain-id <span class="va">$AKASH_CHAIN_ID</span> --dseq <span class="va">$DSEQ</span>  --owner <span class="va">$ACCOUNT_ADDRESS</span> --from <span class="va">$KEY_NAME</span> --keyring-backend file -y --fees 5000uakt  --gas=auto</span></code></pre>
+</div>
 <h3 id="end-akt">💡 End 💲 <code>AKT</code> 🚀 🌕</h3>
 <p><strong>How to build &amp; run docker container</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="ex">docker</span> build -t akash-webapp .</span>
+<div class="sourceCode" id="cb26">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="ex">docker</span> build -t akash-webapp .</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 8080:80 akash-webapp</span></code></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a><span class="ex">docker</span> run -d -p 8080:80 akash-webapp</span></code></pre>
+</div>
 <p><strong>How to convert README.md file to HTML with UTF-8 encoding</strong></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="ex">iconv</span> -t utf-8 README.md <span class="kw">|</span> <span class="ex">pandoc</span> -t html -o README.html <span class="kw">|</span> <span class="ex">iconv</span> -f utf-8</span></code></pre></div>
+<div class="sourceCode" id="cb27">
+    <pre
+        class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="ex">iconv</span> -t utf-8 README.md <span class="kw">|</span> <span class="ex">pandoc</span> -t html -o README.html <span class="kw">|</span> <span class="ex">iconv</span> -f utf-8</span></code></pre>
+</div>
