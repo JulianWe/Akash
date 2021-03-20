@@ -1,4 +1,4 @@
-# Display README.md file from github on HTMl Website
+# Display README.md file from github on HTML Website
 
 
 **How to build & run docker container**
