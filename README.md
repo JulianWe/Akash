@@ -306,4 +306,9 @@ echo akash tx deployment close --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --d
 
 ### 💡 End 💲 `AKT` 🚀 🌕
 
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JulianWe&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+
+
+
 
